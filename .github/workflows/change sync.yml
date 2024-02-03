@@ -4,6 +4,7 @@ on:
   push:
     paths:   
       - '**.txt'
+      - '**.yml'
 
 jobs:
   change:
