@@ -21,7 +21,7 @@ for name in name_list:
     '          retention-days: 7\n' + \
     '      - name: Send Email %s\n' % str(name) + \
     '        run: |\n' + \
-    '          export $NAME_USER=%s\n' % str(name) + \
+    '          export NAME_USER="%s"\n' % str(name) + \
     '          python upload_email.py\n\n'
     text_end += change_part
 
