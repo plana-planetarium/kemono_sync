@@ -12,9 +12,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Clone
+        run: |
+          git clone https://github.com/plana-planetarium/kemono_sync.git
 
       - name: Change sync.yml
         run: |
+          cd kemono_sync
           python change.py
 
       - name: Add
