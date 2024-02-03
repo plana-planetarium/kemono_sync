@@ -17,14 +17,21 @@ jobs:
         run: |
           python change.py
 
-      - name: Prepare to push
+      - name: Set SSH Environment
+        env:
+          GIT_KEY: ${{ secrets.KEY }}
         run: |
-         git config --global user.name "plana-planetarium"
+          mkdir -p ~/.ssh/
+          echo "$GIT_KEY" > ~/.ssh/id_rsa
+          echo "$SSH_CONFIG" > ~/.ssh/config
+
+      - name: Push
+        run: |
          git config --global user.email "3412294524@qq.com"
+         git init
+         git remote remove origin
+         git remote add origin git@github.com:plana-planetarium/kemono_sync.git
          git add .github/workflows/
          git commit -m 'Update sync.yml'
+         git push --set-upstream origin master
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.TOKEN }}
