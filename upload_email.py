@@ -1,7 +1,7 @@
 #from send_email import email_tool
 import os
 
-file = 'A.R.O.N.A' + '.txt'
+file = os.getenv('NAME_USER') + '.txt'
 
 with open('./sync_require/' + file, 'r') as file_open:
     text = file_open.read()
@@ -15,4 +15,4 @@ if if_file == []:
     upload_name = '!!!NO FILE NEED TO UPLOAD!!!'
     
 
-#email_tool(receiver = text[0], URL = text[1], upload_name = text[2], status_num = text[3], name = text[4], user_update = text[5])
+email_tool(receiver = text[0], URL = text[1], upload_name = text[2], status_num = text[3], name = text[4], user_update = text[5])

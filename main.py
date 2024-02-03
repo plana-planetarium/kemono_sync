@@ -1,6 +1,6 @@
 import os
 import datetime
-#from send_email import email_tool
+from send_email import email_tool
 
 #NOTE 
 #    ktoolbox sync-creator https://kemono.su/fanbox/user/16034374 --start-time= 
@@ -31,7 +31,7 @@ for file in require_files:
     #     url --> type: list 更新地址列表
     #     url_email --> 纯文本地址集，仅用添加至正文
 
-#    email_tool(receiver = email_adress, URL = url_email, upload_name = name, status_num = '1', name = name, user_update = '')
+    email_tool(receiver = email_adress, URL = url_email, upload_name = name, status_num = '1', name = name, user_update = '')
 
     os.system('''mkdir "./Downloads/''' + name + '''"''')
     os.chdir('./Downloads/' + name)
@@ -64,7 +64,7 @@ for file in require_files:
     if user_update == '':
         user_update = '!!!NO USER NEED TO UPDATE!!!'
 
-#    email_tool(receiver = email_adress, URL = url_email, upload_name = name, status_num = '2', name = name, user_update = '')
+    email_tool(receiver = email_adress, URL = url_email, upload_name = name, status_num = '2', name = name, user_update = '')
 
     os.chdir('../..')
 
