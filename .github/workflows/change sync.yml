@@ -3,7 +3,7 @@ name: 自动添加用户至同步程序
 on:
   push:
     paths:   
-      - 'add/**'
+      - 'add.change'
 
 jobs:
   change:
@@ -26,7 +26,6 @@ jobs:
 
       - name: Change sync.yml
         run: |
-          mv ./add/* ./sync_require/
           python change.py
 
       - name: Add
@@ -34,7 +33,7 @@ jobs:
           git config --global user.name "plana-planetarium"
           git config --global user.email "3412294524@qq.com"
           git init
-          git add .
+          git add .github/workflows/
           git commit -m 'Update sync.yml'
 
       - name: Push
