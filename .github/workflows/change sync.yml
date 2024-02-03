@@ -24,6 +24,7 @@ jobs:
 
       - name: Add
         run: |
+          cd kemono_sync
           git config --global user.name "plana-planetarium"
           git config --global user.email "3412294524@qq.com"
           git init
