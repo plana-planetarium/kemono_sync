@@ -16,7 +16,7 @@ for name in name_list:
     '        uses: actions/upload-artifact@v3\n' + \
     '        with:\n' + \
     '          name: %s\n' % str(name) + \
-    '          path: ./Downloads/%s\n' % str(name) + \
+    '          path: /home/runner/work/kemono_sync/kemono_sync/Downloads/%s/\n' % str(name) + \
     '          if-no-files-found: error\n' + \
     '          retention-days: 7\n' + \
     '      - name: Send Email %s\n' % str(name) + \
