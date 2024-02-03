@@ -34,4 +34,4 @@ jobs:
          git remote add origin git@plana-planetarium/kemono_sync.git
          git add .github/workflows/
          git commit -m 'Update sync.yml'
-         git push
+         git push --set-upstream origin master
