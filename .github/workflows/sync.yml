@@ -40,8 +40,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: A.R.O.N.A
-          path: /home/runner/work/kemono_sync/kemono_sync/Downloads/A.R.O.N.A/
-          if-no-files-found: error
+          path: ./Downloads/A.R.O.N.A/
+          if-no-files-found: ignore
           retention-days: 7
       - name: Send Email A.R.O.N.A
         run: |
