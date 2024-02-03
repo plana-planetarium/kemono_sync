@@ -1,11 +1,17 @@
 name: 自动同步kemono上的画师文件
 
 on:
-  schedule:
-    - cron: '0 11 * * *'
+  #  schedule:
+  #    - cron: '0 11 * * *'
+  workflow:
+    USERNAME:
+      type: string
+      default: ''
+      description: 'test'
+      required: false
 
 jobs:
-  crawler:
+  update:
     runs-on: ubuntu-latest
     env:
       #email
@@ -30,15 +36,6 @@ jobs:
           python main.py
 
 
-      - name: Upload File EnMa0
-        uses: actions/upload-artifact@v3
-        with:
-          name: EnMa0
-          path: ./Downloads/EnMa0
-          if-no-files-found: error
-          retention-days: 7
-
-
       - name: Upload File A.R.O.N.A
         uses: actions/upload-artifact@v3
         with:
@@ -46,4 +43,21 @@ jobs:
           path: ./Downloads/A.R.O.N.A
           if-no-files-found: error
           retention-days: 7
+      - name: Send Email A.R.O.N.A
+        run: |
+          export $NAME_USER=A.R.O.N.A
+          python upload_email.py
+
+
+      - name: Upload File EnMa0
+        uses: actions/upload-artifact@v3
+        with:
+          name: EnMa0
+          path: ./Downloads/EnMa0
+          if-no-files-found: error
+          retention-days: 7
+      - name: Send Email EnMa0
+        run: |
+          export $NAME_USER=EnMa0
+          python upload_email.py
 
