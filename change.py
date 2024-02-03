@@ -18,7 +18,11 @@ for name in name_list:
     '          name: %s\n' % str(name) + \
     '          path: ./Downloads/%s\n' % str(name) + \
     '          if-no-files-found: error\n' + \
-    '          retention-days: 7\n\n'
+    '          retention-days: 7\n' + \
+    '      - name: Send Email %s\n' % str(name) + \
+    '        run: |\n' + \
+    '          export $NAME_USER=%s\n' % str(name) + \
+    '          python upload_email.py\n\n'
     text_end += change_part
 
 text = text + text_end

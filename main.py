@@ -38,8 +38,7 @@ for file in require_files:
 
     #NOTE ktoolbox sync-creator https://kemono.su/fanbox/user/16034374 --start-time= 
     for url_download in url:
-        os.system('ktoolbox sync-creator ' + url_download + ' --start-time=' + str(datetime.date.today()).replace('datetime.date(', '').replace(', ', '-').replace(')', ''))
-
+        os.system('ktoolbox sync-creator ' + url_download + ' --start-time=' + str(datetime.date.today() - datetime.timedelta(days=1)).replace('datetime.date(', '').replace(', ', '-').replace(')', '')) + ' --end-time=' + str(datetime.date.today()).replace('datetime.date(', '').replace(', ', '-').replace(')', '')
 
     email_tool(receiver = email_adress, URL = url_email, upload_name = name, status_num = '2', name = name, user_update = '')
 
@@ -53,6 +52,10 @@ for file in require_files:
             os.system('rm ./' + user + '/creator-indices.ktoolbox')
         else:
             os.system('rm -r ./' + user)
+    down_user = os.listdir('./')
+    if down_user == []:
+        os.system('echo "empty" > empty.empty')
+        
     #NOTE 现在所处目录:Downlaods/name/
     #     user_update --> list 包含所更新画师的昵称
     
@@ -60,5 +63,9 @@ for file in require_files:
 
     if user_update == '':
         user_update = '!!!NO USER NEED TO UPDATE!!!'
-    email_tool(receiver = email_adress, URL = url_email, upload_name = name, status_num = '3', name = name, user_update = user_update)
+
     os.chdir('../..')
+
+    with open('./sync_require/' + file, 'w') as file_open:
+        file_open.write(email_adress + '\n' + url_email + '\n' + name + '\n' + '3' + '\n' + name + '\n' + user_update)
+    file_open.close()
