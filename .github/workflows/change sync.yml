@@ -13,25 +13,17 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Change sync.yml
-        env:
-          KEY: ${{ secrets.KEY }}
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$KEYS" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
-          
-      - name: Run change.py
         run: |
           python change.py
-          
+
       - name: Push
         run: |
          git config --global user.name "plana-planetarium"
          git config --global user.email "3412294524@qq.com"
-         git init
-         git remote remove origin
-         git remote add origin git@github.com:plana-planetarium/kemono_sync.git
          git add .github/workflows/
          git commit -m 'Update sync.yml'
-         git push --set-upstream origin master
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.KEY }}
