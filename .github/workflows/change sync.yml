@@ -36,3 +36,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN }}
+
+      - name: Send Email A.R.O.N.A
+        run: |
+          python change_email.py
