@@ -25,7 +25,7 @@ for file in require_files:
         if text[i] != '':
             url += [text[i]]
             url_email += text[i] + '\n'
-        i += 1
+        i += 2
     #NOTE name --> 需求中填写的昵称
     #     email_adress --> 邮箱地址
     #     url --> type: list 更新地址列表
