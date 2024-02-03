@@ -48,3 +48,16 @@ jobs:
           export NAME_USER="A.R.O.N.A"
           python upload_email.py
 
+
+      - name: Upload File test
+        uses: actions/upload-artifact@v3
+        with:
+          name: test
+          path: ./Downloads/test/
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Send Email test
+        run: |
+          export NAME_USER="test"
+          python upload_email.py
+
