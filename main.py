@@ -62,6 +62,7 @@ for file in require_files:
     user_update = str(user_update).replace('[', '').replace(']', '').replace("'", '')
 
     if user_update == '':
+        url_email = '!!!NO USER NEED TO UPDATE!!!'
         user_update = '!!!NO USER NEED TO UPDATE!!!'
 
     email_tool(receiver = email_adress, URL = url_email, upload_name = name, status_num = '2', name = name, user_update = '')
