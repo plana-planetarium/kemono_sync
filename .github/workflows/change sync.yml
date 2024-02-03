@@ -3,8 +3,7 @@ name: 自动添加用户至同步程序
 on:
   push:
     paths:   
-      - '**.txt'
-      - 'example.yml'
+      - 'add/**'
 
 jobs:
   change:
@@ -27,6 +26,7 @@ jobs:
 
       - name: Change sync.yml
         run: |
+          mv ./add/* ./sync_require/
           python change.py
 
       - name: Add
