@@ -45,6 +45,6 @@ jobs:
           retention-days: 7
       - name: Send Email A.R.O.N.A
         run: |
-          export $NAME_USER=A.R.O.N.A
+          export NAME_USER="A.R.O.N.A"
           python upload_email.py
 
