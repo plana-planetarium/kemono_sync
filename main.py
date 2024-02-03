@@ -42,7 +42,7 @@ for file in require_files:
         end_time = str(datetime.date.today())
         os.system('ktoolbox sync-creator ' + url_download + ' --start-time=' + start_time + ' --end-time=' + end_time)
 
-    email_tool(receiver = email_adress, URL = url_email, upload_name = name, status_num = '2', name = name, user_update = '')
+    #email_tool(receiver = email_adress, URL = url_email, upload_name = name, status_num = '2', name = name, user_update = '')
 
     os.system('rm -r ./logs')
     down_user = os.listdir('./')

@@ -84,7 +84,6 @@ def email_tool(receiver, URL, upload_name, status_num, name, user_update):
         except Exception as e:
             print(e)
     
-    if __name__ == "__main__":
-        message = message_config()
-        send_mail(message)
-        print("Sent email successfully")
+    message = message_config()
+    send_mail(message)
+    print("Sent email successfully")
