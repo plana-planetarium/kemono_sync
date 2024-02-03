@@ -27,6 +27,7 @@ jobs:
 
       - name: Push
         run: |
+         git config --global user.name "plana-planetarium"
          git config --global user.email "3412294524@qq.com"
          git init
          git remote remove origin
