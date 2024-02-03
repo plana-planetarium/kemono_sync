@@ -24,6 +24,8 @@ jobs:
           mkdir -p ~/.ssh/
           echo "$GIT_KEY" > ~/.ssh/id_rsa
           echo "$SSH_CONFIG" > ~/.ssh/config
+          chmod 600 ~/.ssh/id_rsa
+          chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
 
       - name: Push
         run: |
