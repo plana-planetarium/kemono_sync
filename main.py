@@ -38,8 +38,8 @@ for file in require_files:
 
     #NOTE ktoolbox sync-creator https://kemono.su/fanbox/user/16034374 --start-time= 
     for url_download in url:
-        start_time = str(datetime.date.today() - datetime.timedelta(days=1),'%Y-%m-%d')
-        end_time = str(datetime.date.today(),'%Y-%m-%d')
+        start_time = str(datetime.date.today() - datetime.timedelta(days=1))
+        end_time = str(datetime.date.today())
         os.system('ktoolbox sync-creator ' + url_download + ' --start-time=' + start_time + ' --end-time=' + end_time)
 
     email_tool(receiver = email_adress, URL = url_email, upload_name = name, status_num = '2', name = name, user_update = '')
