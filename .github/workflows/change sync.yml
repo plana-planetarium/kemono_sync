@@ -8,9 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
-      contents: write
+    permissions: write-all
 
     steps:
       - uses: actions/checkout@v2
@@ -29,4 +27,4 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.KEY }}
+          github_token: ${{ secrets.TOKEN }}
