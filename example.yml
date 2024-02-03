@@ -1,8 +1,14 @@
 name: 自动同步kemono上的画师文件
 
 on:
-  schedule:
-    - cron: '0 11 * * *'
+  #  schedule:
+  #    - cron: '0 11 * * *'
+  workflow:
+    USERNAME:
+      type: string
+      default: ''
+      description: 'test'
+      required: false
 
 jobs:
   update:
