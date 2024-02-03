@@ -10,7 +10,6 @@ file_open.close()
 text = text.split('\n')
 
 if_file = os.listdir('./Downloads/' + file.replace('.txt', ''))
-print(if_file)
 if if_file == []:
     upload_name = '!!!NO FILE NEED TO UPLOAD!!!'
     
