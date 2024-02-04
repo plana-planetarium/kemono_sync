@@ -2,7 +2,7 @@ name: 自动同步kemono上的画师文件
 
 on:
     schedule:
-      - cron: '0 11 * * *'
+      - cron: '0 4 * * *'
   #workflow_dispatch:
   #  USERNAME:
   #    type: string
