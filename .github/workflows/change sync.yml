@@ -4,7 +4,9 @@ on:
   push:
     paths:   
       - 'add.change'
-
+      - 'example.yml'
+      - '.github/workflows/change sync.yml'
+      
 jobs:
   change:
     runs-on: ubuntu-latest
